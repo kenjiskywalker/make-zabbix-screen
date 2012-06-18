@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export version="1.0" date="<: $day :>" time="<: $hour :>">
+  <screens>
+    <screen>
+      <screenitems>
+: for $data -> $data {
+        <screenitem>
+          <resourcetype>0</resourcetype>
+          <resourceid>
+            <host><: $data.host :></host>
+            <name><: $data.name :></name>
+          </resourceid>
+          <width>500</width>
+          <height>100</height>
+          <x><: $data.x :></x>
+          <y><: $data.y :></y>
+          <colspan>0</colspan>
+          <rowspan>0</rowspan>
+          <elements>0</elements>
+          <valign>0</valign>
+          <halign>0</halign>
+          <style>0</style>
+          <dynamic>0</dynamic>
+        </screenitem>
+: }
+      </screenitems>
+      <name><: $srnm :></name>
+      <hsize><: $hsize:></hsize>
+      <vsize><: $vsize:></vsize>
+    </screen>
+  </screens>
+</zabbix_export>

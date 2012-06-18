@@ -1,0 +1,35 @@
+
+make xml file for ZABBIX screen xml with reference to this csv file.
+
+edit make_screen.csv file.
+--------------------------------------------------------------------------------
+
+The meaning of each item
+
+1 = xml filename,
+2 = host name,
+3 = graph name,
+4 = screen name,
+
+[example]
+
+cpu_zabbix_xml,web01,Network Traffic(eth0),Hoge Service Network Traffic
+
+xml filename = cpu_zabbix_xml.xml
+host name = web01
+graph name = Hoge Service Network Traffic
+
+
+!!!!! Attention !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Screen made of this script are determined by the two graphs side.
+If you want to customize three or more appropriately, please.this maked screen
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+--------------------------------------------------------------------------------
+
+enjoy make zabbix screen xml
+
+$ perl make-screen.pl
+
+:) 
+
