@@ -14,14 +14,14 @@ The meaning of each item
 [example]
 
 [csv]
-network_traffic_zabbix_xml,web01,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,web02,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,app01,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,app02,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,app03,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,db01,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,db02,Network Traffic(eth0),Hoge Service Network Traffic
-network_traffic_zabbix_xml,cache01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix,web01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix,web02,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix,app01,Network Traffic(eth0),Hoge Service Network Traffic
+cpu_zabbix,app02,CPU Utilization,Hoge CPU Utilization
+cpu_zabbix,app03,CPU Utilization,Hoge CPU Utilization
+cpu_zabbix,db01,CPU Utilization,Hoge CPU UtilizationS
+cpu_zabbix,db02,CPU Utilization,Hoge CPU UtilizationS
+cpu_zabbix,cache01,CPU Utilization,Hoge CPU Utilization
 
 
 [setting data]
@@ -37,10 +37,81 @@ If you want to customize three or more appropriately, please.this maked screen
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-[output file = network_traffic_zabbix_xml.xml]
+[output file = network_traffic_zabbix.xml]
 =============================================================
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="12.06.20" time="16.06">
+<zabbix_export version="1.0" date="12.06.20" time="20.06">
+  <screens>
+    <screen>
+      <screenitems>
+        <screenitem>
+          <resourcetype>0</resourcetype>
+          <resourceid>
+            <host>web01</host>
+            <name>Network Traffic(eth0)</name>
+          </resourceid>
+          <width>500</width>
+          <height>100</height>
+          <x>0</x>
+          <y>0</y>
+          <colspan>0</colspan>
+          <rowspan>0</rowspan>
+          <elements>0</elements>
+          <valign>0</valign>
+          <halign>0</halign>
+          <style>0</style>
+          <dynamic>0</dynamic>
+        </screenitem>
+        <screenitem>
+          <resourcetype>0</resourcetype>
+          <resourceid>
+            <host>web02</host>
+            <name>Network Traffic(eth0)</name>
+          </resourceid>
+          <width>500</width>
+          <height>100</height>
+          <x>1</x>
+          <y>0</y>
+          <colspan>0</colspan>
+          <rowspan>0</rowspan>
+          <elements>0</elements>
+          <valign>0</valign>
+          <halign>0</halign>
+          <style>0</style>
+          <dynamic>0</dynamic>
+        </screenitem>
+        <screenitem>
+          <resourcetype>0</resourcetype>
+          <resourceid>
+            <host>app01</host>
+            <name>Network Traffic(eth0)</name>
+          </resourceid>
+          <width>500</width>
+          <height>100</height>
+          <x>0</x>
+          <y>1</y>
+          <colspan>0</colspan>
+          <rowspan>0</rowspan>
+          <elements>0</elements>
+          <valign>0</valign>
+          <halign>0</halign>
+          <style>0</style>
+          <dynamic>0</dynamic>
+        </screenitem>
+      </screenitems>
+      <name>Hoge Service Network Traffic</name>
+      <hsize>2</hsize>
+      <vsize>1</vsize>
+    </screen>
+  </screens>
+</zabbix_export>
+=============================================================
+
+
+[output file = cpu_zabbix.xml]
+=============================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export version="1.0" date="12.06.20" time="20.06">
   <screens>
     <screen>
       <screenitems>
@@ -102,7 +173,7 @@ If you want to customize three or more appropriately, please.this maked screen
           <resourcetype>0</resourcetype>
           <resourceid>
             <host>app02</host>
-            <name>Network Traffic(eth0)</name>
+            <name>CPU Utilization</name>
           </resourceid>
           <width>500</width>
           <height>100</height>
@@ -120,12 +191,12 @@ If you want to customize three or more appropriately, please.this maked screen
           <resourcetype>0</resourcetype>
           <resourceid>
             <host>app03</host>
-            <name>Network Traffic(eth0)</name>
+            <name>CPU Utilization</name>
           </resourceid>
           <width>500</width>
           <height>100</height>
           <x>0</x>
-          <y>2</y>
+          <y>1</y>
           <colspan>0</colspan>
           <rowspan>0</rowspan>
           <elements>0</elements>
@@ -138,7 +209,7 @@ If you want to customize three or more appropriately, please.this maked screen
           <resourcetype>0</resourcetype>
           <resourceid>
             <host>db01</host>
-            <name>Network Traffic(eth0)</name>
+            <name>CPU Utilization</name>
           </resourceid>
           <width>500</width>
           <height>100</height>
@@ -156,12 +227,12 @@ If you want to customize three or more appropriately, please.this maked screen
           <resourcetype>0</resourcetype>
           <resourceid>
             <host>db02</host>
-            <name>Network Traffic(eth0)</name>
+            <name>CPU Utilization</name>
           </resourceid>
           <width>500</width>
           <height>100</height>
           <x>0</x>
-          <y>3</y>
+          <y>2</y>
           <colspan>0</colspan>
           <rowspan>0</rowspan>
           <elements>0</elements>
@@ -174,7 +245,7 @@ If you want to customize three or more appropriately, please.this maked screen
           <resourcetype>0</resourcetype>
           <resourceid>
             <host>cache01</host>
-            <name>Network Traffic(eth0)</name>
+            <name>CPU Utilization</name>
           </resourceid>
           <width>500</width>
           <height>100</height>
@@ -189,9 +260,9 @@ If you want to customize three or more appropriately, please.this maked screen
           <dynamic>0</dynamic>
         </screenitem>
       </screenitems>
-      <name>Hoge Service Network Traffic</name>
+      <name>Hoge CPU Utilization</name>
       <hsize>2</hsize>
-      <vsize>4</vsize>
+      <vsize>3</vsize>
     </screen>
   </screens>
 </zabbix_export>

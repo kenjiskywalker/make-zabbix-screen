@@ -34,6 +34,9 @@ my $z = 0;
 my $hsize = 0;
 my $vsize = 0;
 
+my $oldfile         = "dummy";
+my $notsamefilename = 0;
+
 open my $ifh, '<', $in_file
   or die "Can't open file \"$in_file\": $!";
 
@@ -54,6 +57,23 @@ while ( my $line = <$ifh> ) {
         y    => $y,
     };
 
+    if ( $file eq $oldfile ) {
+
+        $notsamefilename = 0;
+
+    }
+    elsif ( $oldfile eq "dummy" && !-e $out_file ) {
+
+        $notsamefilename = 0;
+
+    }
+    else {
+
+        $notsamefilename = 1;
+        $z               = 0;
+
+    }
+
     push( @datas, $host_data );
 
     if ( $x == 1 ) {
@@ -71,48 +91,53 @@ while ( my $line = <$ifh> ) {
         $y++;
     }
 
-}
+    $hsize = 2;
+    $vsize = $y;
 
-$hsize = 2;
-$vsize = $y;
-
-my $content = $tx->render(
-    "./make_screen.tx",
-    {
-        day   => $day,
-        hour  => $hour,
-        srnm  => $srnm,
-        hsize => $hsize,
-        vsize => $vsize,
-        data  => \@datas,
-    }
-);
-
-if ( -e $out_file ) {
-
-    print "allow overrite => $out_file ok? [y/n] : ";
-
-    while ( my $ans = <> ) {
-        chomp($ans);
-        if ( $ans eq "y" ) {
-            open my $ofh, '>', $out_file;
-            print $ofh $content;
-            close($ofh);
-            exit;
+    my $content = $tx->render(
+        "./make_screen.tx",
+        {
+            day   => $day,
+            hour  => $hour,
+            srnm  => $srnm,
+            hsize => $hsize,
+            vsize => $vsize,
+            data  => \@datas,
         }
-        elsif ( $ans eq "n" ) {
-            print "goodbye.\n";
-            exit;
-        }
-        elsif ( $ans ne "y" && $ans ne "n" ) {
+    );
+
+    if ( -e $out_file ) {
+
+        if ( $notsamefilename == 1 ) {
+
             print "allow overrite => $out_file ok? [y/n] : ";
+
+            while ( my $ans = <> ) {
+                chomp($ans);
+                if ( $ans eq "y" ) {
+                    open my $ofh, '>', $out_file;
+                    print $ofh $content;
+                    close($ofh);
+                    last;
+                }
+                elsif ( $ans eq "n" ) {
+                    print "goodbye.\n";
+                    exit;
+                }
+                elsif ( $ans ne "y" && $ans ne "n" ) {
+                    print "allow overrite => $out_file ok? [y/n] : ";
+                }
+            }
         }
     }
-}
 
-open my $ofh, '>', $out_file;
-print $ofh $content;
-close($ofh);
+    open my $ofh, '>', $out_file;
+    print $ofh $content;
+    close($ofh);
+
+    $oldfile = $file;
+
+}
 
 __END__
 
