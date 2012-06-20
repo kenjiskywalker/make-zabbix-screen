@@ -14,18 +14,18 @@ The meaning of each item
 [example]
 
 [csv]
-cpu_zabbix_xml,web01,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,web02,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,app01,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,app02,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,app03,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,db01,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,db02,Network Traffic(eth0),Hoge Service Network Traffic
-cpu_zabbix_xml,cache01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,web01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,web02,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,app01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,app02,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,app03,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,db01,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,db02,Network Traffic(eth0),Hoge Service Network Traffic
+network_traffic_zabbix_xml,cache01,Network Traffic(eth0),Hoge Service Network Traffic
 
 
 [setting data]
-xml filename = cpu_zabbix_xml.xml
+xml filename = network_traffic_zabbix_xml.xml
 host name = web01
 graph name = Hoge Service Network Traffic
 .
@@ -37,7 +37,7 @@ If you want to customize three or more appropriately, please.this maked screen
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-[output file = cpu_zabbix_xml.xml]
+[output file = network_traffic_zabbix_xml.xml]
 =============================================================
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export version="1.0" date="12.06.20" time="16.06">
